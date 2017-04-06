@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+		<div class="col col-md-12">
+		<!-- if userStatus get load -->
+			<div ng-show="!userVm.userStatusList" class="title-msg">
+				There is no data to show, try to click button below see who is online
+			</div>
+			<!-- show userStatus no matter is error -->
+			<div ng-show="userVm.userStatusList">
+				<div class="title-msg">
+					press `refresh` to reload the list :)
+				</div>
+				<div ng-show="userVm.userStatusList.errors !== null" 
+					 class="warning title-msg">
+					{{userVm.userStatusList.errors}}
+				</div>
+				<div ng-show="userVm.userStatusList.errors === null">
+					<ul ng-repeat="item in userVm.userStatusList.data" class="list-group list-custom">
+						<li class="list-group-item">
+							<div class="name inline">
+								{{item.nick}}
+							</div>
+							<div class="msg inline" ng-class="{green: item.online}">
+								{{item.online ? 'online':'offline'}}
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<button ng-click="userVm.userStatus()" type="button" class="btn btn-warning btn-cutom">
+			  Refresh
+			</button>
+		</div>
+	</div>
+</div>

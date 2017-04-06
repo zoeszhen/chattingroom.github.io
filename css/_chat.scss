@@ -1,0 +1,91 @@
+$red: random(256)-1;
+$green: random(256)-1;
+$blue: random(256)-1;
+$alpha: random(100)/100;
+
+$red1: random(256)-2;
+$green1: random(256)-2;
+$blue1: random(256)-2;
+
+.random-color {
+    color: white;
+    background-color: rgba($red, $green, $blue, $alpha);
+}
+
+.msg-flow{
+   overflow-y: scroll;
+   max-height: 60vh;
+}
+
+/*custom list*/
+.list-custom{
+	padding-left: 0px;
+	li{
+		border:none;
+		.avatar{
+		    display: inline-block;
+		    height: 50px;
+		    width: 50px;
+		    font-size: 30px;
+		    text-align: center;
+		    border-radius: 25px;
+		    font-weight: 900;
+		    vertical-align: middle;
+		}
+		.server-avatar{
+			
+			background: $main-color;
+		}
+		.msg-content{
+			display: inline-block;
+		    vertical-align: middle;
+		    margin-left: 20px;
+		    min-width: 60%;
+		    span{
+		    	display: block;
+		    }
+		   
+		} 
+		.name{
+    		font-weight: 900;
+    		font-size: 20px;
+    	}
+    	.msg{
+    		font-weight: 200;
+    	}
+    	.inline{
+    		display: inline-block;
+    	}
+    	.green{
+    		color: green;
+    	}
+	};
+
+	.right{
+		background: #fff7ed;
+		text-align: right;
+		.avatar{
+			/*color: rgb($red1, $green1, $blue1);*/
+   			background-color: rgba($red1, $green1, $blue1, $alpha);
+			margin-left: 20px;
+			float: right;
+		}
+	}
+}
+/*responsive field*/
+.msg-filed{
+	min-height: 88vh;
+
+	.msg-frame{
+		min-height: 75vh;
+
+		.msg-content{
+			max-height: 614px !important;
+		}
+	}
+}
+
+.inputbox{
+	position: absolute;
+	bottom: 0;
+}

@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+		<div  class="col col-md-12">
+		    <div class="title-msg" ng-show="historyVm.chatHistoryList.length < 1">
+		    	There is no History to show, press refresh button to see if you can load more.
+		    </div>
+		    <div ng-show="historyVm.errorMsg">
+		    	{{historyVm.errorMsg}}
+		    </div>
+			<ul class="list-group list-custom" 
+				ng-repeat= 'history in historyVm.chatHistoryList track by $index'
+				ng-hide="historyVm.errorMsg">
+		  		<li class="list-group-item">
+		  			<div class="avatar" style="background-color:{{historyVm.avatarColorSet[history.from]}}">
+		  				{{history.from[0]!== '_'? history.from[0]: history.from[1]}}
+		  			</div>
+		  			<div class="msg-content">
+							<div class="name">
+								{{history.from}} 
+		  				</div>
+		  				<p>{{history.timestamp | date:'medium'}}<p>
+		  				<span class="message">
+		  					{{history.message || history.msg }}
+		  				</span>
+		  			</div>
+		  		</li>
+		  	</ul>
+		  	<div class="center">
+		  		<button ng-click="historyVm.chatHistory()" class="btn btn-warning btn-cutom">
+				 	Refresh
+				</button>
+		  	</div>
+		</div>
+	</div>		
+</div>

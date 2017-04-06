@@ -1,0 +1,32 @@
+$main-color: #f69918;
+html, body{
+	height:100%;
+	font-family: url('https://fonts.googleapis.com/css?family=Catamaran:100,200,300,900');
+	a{
+		cursor: pointer !important;
+		color: white !important;
+	}
+}
+.nav-custom{
+	background: $main-color;
+	border: $main-color 1px solid;
+	color: white;
+	font-weight: 900;
+}
+.title-msg{
+	font-weight: 900;
+	font-size:30px;
+}
+.warning{
+	color: red;
+}
+.center{
+	text-align: center;
+}
+.btn-cutom{
+	font-weight: 900;
+	font-size:25px;
+}
+.active{
+	text-decoration: line-through;
+}

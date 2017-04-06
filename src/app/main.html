@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default nav-custom">
+	<div class="container-fluid">
+	  <div class="navbar-header">
+	    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	      <span class="sr-only">Toggle navigation</span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>
+	    <a class="navbar-brand"  ng-click="mainVm.handleTab('Chatting')">Chatting room</a>
+	  </div>
+	  <div id="navbar" class="navbar-collapse collapse navbar-center">
+	    <ul class="nav navbar-nav">
+	      <li><a ng-click="mainVm.handleTab('Chatting')" 
+	      		ng-class="{'active': mainVm.currentTab === 'Chatting'}">
+	      		Chatting
+	      </a></li>
+	      <li><a ng-click="mainVm.handleTab('History')"
+	      		 ng-class="{'active': mainVm.currentTab === 'History'}">
+	     	 History
+	      </a></li>
+	      <li><a ng-click="mainVm.handleTab('UserStatus')"
+	      		 ng-class="{'active': mainVm.currentTab === 'UserStatus'}">
+	      	UserStatus
+	      	</a></li>
+	    </ul>
+	  </div><!--/.nav-collapse -->
+	</div><!--/.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+	<chat-cmp ng-show="mainVm.currentTab === 'Chatting'" style="height:100%;"></chat-cmp>
+	<history-cmp ng-if="mainVm.currentTab === 'History'"></history-cmp>
+	<user-cmp ng-if="mainVm.currentTab === 'UserStatus'"></user-cmp>
+</div>

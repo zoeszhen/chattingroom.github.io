@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-md-12" >
+      <div class="row msg-filed">
+         <div class="msg-flow msg-frame" scroll-glue>
+            <div ng-if="chatVm.msgCollection.length < 1"
+                 class="warning title-msg">
+              Please check the server side connection
+            </div>
+            <ul class="list-group list-custom msg-content" ng-repeat="msg in chatVm.msgCollection track by $index">
+              <div ng-if="msg.from === undefined || !msg.from" class="title-msg">
+               {{msg}}
+              </div>
+              <li class="list-group-item container-fluid" 
+                  ng-if="$index !== 0"
+                  ng-class="{ right: msg.from === chatVm.nickName}" >
+                <div class="random-color avatar" ng-class="{'server-avatar': msg.from[0]=== '_'}">
+                  {{msg.from[0]!== '_'? msg.from[0]: msg.from[1]}}
+                </div>
+                <div class="msg-content">
+                  <span class="name">
+                    {{msg.from}}
+                  </span>
+                  <span class="msg">
+                    {{msg.message}}
+                  </span>
+                </div>
+              </li>
+            </ul>
+        </div>
+        <textarea
+            class="form-control inputbox"
+            id="exampleTextarea" 
+            rows="3" 
+            ng-enter="chatVm.sendGeneralMsg(chatVm.instantMsg)" 
+            ng-model="chatVm.instantMsg" 
+            placeholder="Put your Message here, press ENTER to send" 
+            autocomplete-angular-expression></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
